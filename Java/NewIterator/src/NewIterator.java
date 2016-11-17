@@ -1,0 +1,53 @@
+import java.util.*;
+public class NewIterator<E> {
+	private Iterator<E> iterator = null;
+	private E next = null;
+	private E current = null;
+	private boolean hasNext = false;
+	
+	public NewIterator(Iterator<E> iterator)
+	{
+		this.iterator = iterator;
+		current = null;
+		if(iterator.hasNext())
+		{
+			hasNext = true;
+			next = iterator.next();
+			current = null;
+		}			
+	}
+	
+	public boolean hasNext() 
+	{
+		current = next;
+		boolean temp = this.hasNext;
+		
+		if(iterator.hasNext())
+			next = iterator.next();
+		
+		else
+			next = null;
+		
+		this.hasNext = (next==null) ? false:true;
+		return temp;
+	}
+
+	public E next() {
+		current = next;
+		this.hasNext = (current==null) ? false:true;
+		if(iterator.hasNext())
+		{
+			next = iterator.next();
+			return current;
+		}
+		else
+		{
+			next = null;
+			return current;
+		}
+	}
+	
+	public E peak() {
+		return current;
+	}
+}
