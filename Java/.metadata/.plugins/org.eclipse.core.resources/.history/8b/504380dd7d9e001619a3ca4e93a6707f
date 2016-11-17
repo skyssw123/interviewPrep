@@ -1,0 +1,44 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+	//Q. Implement a function to check if a binary tree is a binary search tree.
+	}
+	
+	public static boolean checkBST(TreeNode n)
+	{
+		return checkBST(n, null, null);
+	}
+	
+	public static boolean checkBST(TreeNode n, int min, int max)
+	{
+		
+		return true;
+	}
+	
+	//In-order print function
+	public static void print(TreeNode a)
+	{
+		if(a == null)
+			return;
+		if(a.left != null)
+			print(a.left);
+			
+		System.out.println(a.value);
+			
+		if(a.right != null)
+			print(a.right);
+	}
+		
+	public static class TreeNode
+	{
+		int value;
+		public TreeNode left;
+		public TreeNode right;
+		public TreeNode(int value)
+		{
+			this.value = value;
+		}
+	}
+}

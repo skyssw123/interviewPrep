@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="str"/>\n<expression enabled\="true" text\="strings[mid]"/>\n<expression enabled\="true" text\="mid"/>\n<expression enabled\="true" text\="first"/>\n<expression enabled\="true" text\="last"/>\n<expression enabled\="true" text\="i"/>\n<expression enabled\="true" text\="strings[i]"/>\n<expression enabled\="true" text\="j"/>\n<expression enabled\="true" text\="strings[j]"/>\n</watchExpressions>\n

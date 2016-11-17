@@ -1,0 +1,46 @@
+
+public class Main {
+	
+	static void setZeros(int[][] matrix)
+	{
+		
+	}
+	
+	static int[][] generateMatrix()
+	{
+		int[][] matrix = new int[4][4];
+		
+		for(int i = 0; i < matrix.length ; i++)
+		{
+			for(int j = 0; j < matrix[0].length; j++)
+			{
+				matrix[i][j] = 1; 
+			}
+		}
+		return matrix;
+	}
+	
+	static void print(int[][] matrix)
+	{
+		for(int i = 0; i < matrix.length; i++)
+		{
+			for(int j = 0; j < matrix[0].length; j++)
+			{
+				System.out.print(matrix[i][j] + "  ");
+			}
+			System.out.print('\n');
+		}
+	}
+
+	public static void main(String[] args) {
+		int[][] a = generateMatrix();
+		a[3][1] = 0; a[2][2] = 0;
+		print(a);
+		System.out.println("");
+		System.out.println("");
+		
+		setZeros(a);
+		
+		print(a);
+	}
+}

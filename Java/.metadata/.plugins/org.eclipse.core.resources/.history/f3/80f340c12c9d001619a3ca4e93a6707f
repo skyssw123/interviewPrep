@@ -1,0 +1,59 @@
+import java.util.*;
+
+public class Main {
+	//Q. Given a binary tree, design an algorithm which creates a linked list of all the nodes at each depth
+	// (e.g, if you have a tree with depth D, you will have D linked lists)
+
+	ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeNode root)
+	{
+		if(root == null)
+			return null;
+		ArrayList<LinkedList<TreeNode>> result = new ArrayList<LinkedList<TreeNode>>();
+		LinkedList<TreeNode> current = new LinkedList<TreeNode>();
+		current.add(root); //enqueue
+		while(current.size() > 0)
+		{
+			result.add(current);
+			LinkedList<TreeNode> parents = current;
+			for(TreeNode parent : parents)
+			{
+				if(parent.left != null)
+					current.add(parent.left);
+				if(parent.right != null)
+					current.add(parent.right);
+			}
+		}
+		
+		return result;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	//In-order print function
+	public static void print(TreeNode a)
+	{
+		if(a == null)
+			return;
+		if(a.left != null)
+			print(a.left);
+			
+		System.out.println(a.value);
+			
+		if(a.right != null)
+			print(a.right);
+	}
+		
+	public static class TreeNode
+	{
+		int value;
+		public TreeNode left;
+		public TreeNode right;
+		public TreeNode(int value)
+		{
+			this.value = value;
+		}
+	}
+}

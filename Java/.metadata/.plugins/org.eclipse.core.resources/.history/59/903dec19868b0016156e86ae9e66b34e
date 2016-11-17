@@ -1,0 +1,33 @@
+
+
+public class Main {
+	
+	//Solution 1
+	String compress(String str)
+	{
+		int countConsecutive = 0;
+		StringBuilder stringBuilder = new StringBuilder();
+		for(int i = 0; i < str.length(); i++)
+		{
+			countConsecutive ++;
+			if(str.charAt(i) != str.charAt(i+1) || i+1 >= str.length())
+			{
+				stringBuilder.append(str.charAt(i));
+				stringBuilder.append(countConsecutive);
+				countConsecutive = 0;
+			}
+		}
+		return str.length() <= stringBuilder.length() ? str : stringBuilder.toString();  
+	}
+	
+	public static void main(String[] args) {
+		String a = "tactcoa"; //tacocat, atcocta
+		String b = "apokl"; 
+		System.out.println(isPermutationOfPalindrome_hashTable(a)); //true
+		System.out.println(isPermutationOfPalindrome_hashTable(b)); //false
+		
+		System.out.println(isPermutationOfPalindrome_bitVector(a)); //true
+		System.out.println(isPermutationOfPalindrome_bitVector(b)); //false
+	}
+
+}

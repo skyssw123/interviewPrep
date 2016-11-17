@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "isBST_Solution2Util(BinaryTreeNode*, int&amp;):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pRoot-&gt;m_nValue">
+            </PersistentString>
+            <PersistentString
+               value = "prev">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "isBST_Solution2Util(BinaryTreeNode*, int):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pRoot-&gt;m_nValue">
+            </PersistentString>
+            <PersistentString
+               value = "prev">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

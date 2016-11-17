@@ -1,0 +1,56 @@
+public class Main {
+	enum State
+	{
+		Unvisited,
+		Visiting,
+		Visited
+	};
+	
+	boolean search(Graph g, Node start, Node end)
+	{
+		return false;
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	
+	
+	
+	//Class Graph
+	public static class Graph
+	{
+		Node[] nodes;
+		Graph(Node[] nodes)
+		{
+			this.nodes = nodes;
+		}
+		
+		public Node[] getNodes()
+		{
+			return nodes;
+		}
+	}
+	
+	//Class Node
+	public static class Node
+	{
+		public int data;
+		public int state; 
+		Node[] nodes;
+		Node(int data, int state, Node[] node)
+		{
+			this.data = data;
+			this.state = state;
+			this.nodes = node;
+		}
+		
+		public Node[] getAdjacent()
+		{
+			return nodes;
+		}
+	}
+}
+
+

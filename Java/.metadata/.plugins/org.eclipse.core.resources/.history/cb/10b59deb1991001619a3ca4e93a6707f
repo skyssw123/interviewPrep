@@ -1,0 +1,13 @@
+
+public class Main {
+	//Q. Write a method to sort an array of strings so that all the anagrams are next to each other.
+	//Soln 1.
+	
+	
+	//Soln 2. We dont need to fully sort the array. We should just group them. For ex, "acre" will map to list {acre,race,care}
+	// Time Complexity: O(n)
+	public static void main(String[] args) {
+		String[] array = {"sucre", "abc", "cba", "recus", "kp", "cuers", "erpo", "pk"};
+	}
+
+}

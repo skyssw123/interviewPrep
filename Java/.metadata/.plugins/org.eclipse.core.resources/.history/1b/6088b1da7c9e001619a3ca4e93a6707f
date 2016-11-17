@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	//In-order print function
+	public static void print(TreeNode a)
+	{
+		if(a == null)
+			return;
+		if(a.left != null)
+			print(a.left);
+			
+		System.out.println(a.value);
+			
+		if(a.right != null)
+			print(a.right);
+	}
+		
+	public static class TreeNode
+	{
+		int value;
+		public TreeNode left;
+		public TreeNode right;
+		public TreeNode(int value)
+		{
+			this.value = value;
+		}
+	}
+}
