@@ -82,17 +82,19 @@ public class Main {
     Pair topPair = new Pair(pair.row + 1, pair.column);
     Pair bottomPair = new Pair(pair.row -1, pair.column);
     
-    if(leftPair.column >= 0 && !leftPair.equals(origin))
+    if(leftPair.column >= 0 && !pair.equals(origin))
       left = matrix[pair.row][pair.column - 1];
     
-    if(rightPair.column < matrix[0].length && !rightPair.equals(origin))
+    if(rightPair.column < matrix[0].length && !pair.equals(origin))
       right = matrix[pair.row][pair.column + 1];
     
-    if(topPair.row < matrix.length && !topPair.equals(origin))
+    if(topPair.row < matrix.length && !pair.equals(origin))
       top = matrix[pair.row + 1][pair.column];
     
-    if(bottomPair.row >= 0 && !bottomPair.equals(origin))
+    if(bottomPair.row >= 0 && !pair.equals(origin))
       bottom = matrix[pair.row - 1][pair.column];
+    
+     
     
     if(left == value)
     {

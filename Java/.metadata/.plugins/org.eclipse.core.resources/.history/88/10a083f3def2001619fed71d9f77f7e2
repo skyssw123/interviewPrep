@@ -77,43 +77,45 @@ public class Main {
     int top = -1;
     int bottom = -1;
     
-    Pair leftPair = new Pair(pair.row, pair.column - 1);
-    Pair rightPair = new Pair(pair.row, pair.column + 1);
-    Pair topPair = new Pair(pair.row + 1, pair.column);
-    Pair bottomPair = new Pair(pair.row -1, pair.column);
     
-    if(leftPair.column >= 0 && !leftPair.equals(origin))
+    if(pair.column - 1 >= 0 && !(origin.row == pair.row && origin.column == pair.column - 1))
       left = matrix[pair.row][pair.column - 1];
     
-    if(rightPair.column < matrix[0].length && !rightPair.equals(origin))
+    if(pair.column + 1 < matrix[0].length && !(origin.row == pair.row && origin.column == pair.column + 1))
       right = matrix[pair.row][pair.column + 1];
     
-    if(topPair.row < matrix.length && !topPair.equals(origin))
+    if(pair.row + 1 < matrix.length && !(origin.row == pair.row + 1 && origin.column == pair.column))
       top = matrix[pair.row + 1][pair.column];
     
-    if(bottomPair.row >= 0 && !bottomPair.equals(origin))
+    if(pair.row - 1 >= 0 && !(origin.row == pair.row - 1 && origin.column == pair.column))
       bottom = matrix[pair.row - 1][pair.column];
+    
+     
     
     if(left == value)
     {
+      Pair leftPair = new Pair(pair.row, pair.column - 1);
       result.add(leftPair);
       result = getAdjacent(matrix, pair,leftPair, result);
     }
     
     if(right == value)
     {
+      Pair rightPair = new Pair(pair.row, pair.column + 1);
       result.add(rightPair);
       result = getAdjacent(matrix, pair, rightPair, result);
     }
     
     if(top == value)
     {
+      Pair topPair = new Pair(pair.row + 1, pair.column);
       result.add(topPair);
       result = getAdjacent(matrix, pair ,topPair, result);
     }
     
     if(bottom == value)
     {
+      Pair bottomPair = new Pair(pair.row -1, pair.column);
       result.add(bottomPair);
       result = getAdjacent(matrix, pair, bottomPair, result);
     }

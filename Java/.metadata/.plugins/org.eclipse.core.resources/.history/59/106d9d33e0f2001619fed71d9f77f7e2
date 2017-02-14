@@ -94,6 +94,8 @@ public class Main {
     if(bottomPair.row >= 0 && !bottomPair.equals(origin))
       bottom = matrix[pair.row - 1][pair.column];
     
+     
+    
     if(left == value)
     {
       result.add(leftPair);
