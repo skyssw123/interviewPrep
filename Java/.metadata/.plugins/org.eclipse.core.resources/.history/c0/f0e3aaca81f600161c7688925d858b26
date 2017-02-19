@@ -1,5 +1,5 @@
 import java.util.*;
-public class NewIterator<E> implements Iterator<E> {
+public class NewIterator<E> {
 	private Iterator<E> iterator = null;
 	private E next = null;
 	private E current = null;
@@ -17,7 +17,6 @@ public class NewIterator<E> implements Iterator<E> {
 		}			
 	}
 	
-	@Override
 	public boolean hasNext() 
 	{
 		current = next;
@@ -33,7 +32,6 @@ public class NewIterator<E> implements Iterator<E> {
 		return temp;
 	}
 
-	@Override
 	public E next() {
 		current = next;
 		this.hasNext = (current==null) ? false:true;
