@@ -4,7 +4,7 @@ import java.util.*;
 
 // HashSet add/contains function calls hashCode() first and if it is not empty,
 // add/contains function checks if the new element equals the existing elements..
-// For add, it will add if the new element is not present in the HashSet..
+// For add, it will add if the new element is not present in the HashSet
 
 // hashCode for coordinates in Matrix = 31 * row + column
 public class Main {
