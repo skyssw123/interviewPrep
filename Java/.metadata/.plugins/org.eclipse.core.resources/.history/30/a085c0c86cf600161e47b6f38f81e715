@@ -1,0 +1,123 @@
+package getAdjancetFromMatrix;
+import java.io.*;
+import java.util.*;
+
+public class Main {
+  static class Pair {
+    public int row;
+    public int column;
+    Pair (int a, int b)
+    {
+      this.row = a;
+      this.column = b;
+    }
+    
+    public boolean equals(Pair a)
+    {
+    	if(this.row == a.row && this.column == a.column)
+    		return true;
+    	return false;
+    }
+  }
+  public static void main(String[] args) {
+    ArrayList<String> strings = new ArrayList<String>();
+
+    for (String string : strings) {
+      System.out.println(string);
+    }
+    
+    int[][] a = new int[3][3];
+    a[0][1] = 1;
+    a[0][2] = 1;
+    a[1][0] = 1;
+    a[1][1] = 1;
+    a[2][1] = 1;
+    
+    
+    ArrayList<Pair> result = new ArrayList<Pair>();
+    result = getAdjacent(a, new Pair(-1, -1) , new Pair(1,1), result);
+    
+    printPairs(result);
+  }
+  
+  public static void printPairs(ArrayList<Pair> result)
+  {
+    for(Pair pair: result)
+    {
+      System.out.print(pair.row + ", " + pair.column);
+      System.out.println();
+    }
+  }
+  
+  public static void printMatrix(int[][] matrix)
+  {
+    if(matrix.length == 0 || matrix[0].length == 0)
+      return ;
+    
+    for(int i = 0; i < matrix.length ; i++)
+    {
+      for (int j = 0; j < matrix[0].length; j++)
+      {
+        System.out.print(matrix[i][j]);
+        System.out.print(" ");
+      }
+      System.out.println();
+    }
+  }
+  
+  public static ArrayList<Pair> getAdjacent(int[][] matrix, Pair origin, Pair pair, ArrayList<Pair> result)
+  {
+    if(matrix.length == 0 || matrix[0].length == 0)
+      return null;
+    
+    int value = matrix[pair.row][pair.column];
+    
+    int left = -1;
+    int right = -1;
+    int top = -1;
+    int bottom = -1;
+    
+    Pair leftPair = new Pair(pair.row, pair.column - 1);
+    Pair rightPair = new Pair(pair.row, pair.column + 1);
+    Pair topPair = new Pair(pair.row + 1, pair.column);
+    Pair bottomPair = new Pair(pair.row -1, pair.column);
+    
+    if(leftPair.column >= 0 && !leftPair.equals(origin))
+      left = matrix[pair.row][pair.column - 1];
+    
+    if(rightPair.column < matrix[0].length && !rightPair.equals(origin))
+      right = matrix[pair.row][pair.column + 1];
+    
+    if(topPair.row < matrix.length && !topPair.equals(origin))
+      top = matrix[pair.row + 1][pair.column];
+    
+    if(bottomPair.row >= 0 && !bottomPair.equals(origin))
+      bottom = matrix[pair.row - 1][pair.column];
+    
+    if(left == value)
+    {
+      result.add(leftPair);
+      result = getAdjacent(matrix, pair,leftPair, result);
+    }
+    
+    if(right == value)
+    {
+      result.add(rightPair);
+      result = getAdjacent(matrix, pair, rightPair, result);
+    }
+    
+    if(top == value)
+    {
+      result.add(topPair);
+      result = getAdjacent(matrix, pair ,topPair, result);
+    }
+    
+    if(bottom == value)
+    {
+      result.add(bottomPair);
+      result = getAdjacent(matrix, pair, bottomPair, result);
+    }
+    
+    return result;
+  }
+}

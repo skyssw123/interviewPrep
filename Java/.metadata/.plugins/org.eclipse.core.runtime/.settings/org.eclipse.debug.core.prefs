@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="value"/>\r\n<expression enabled\="true" text\="pair.row"/>\r\n<expression enabled\="true" text\="pair.column"/>\r\n<expression enabled\="true" text\="left"/>\r\n<expression enabled\="true" text\="right"/>\r\n<expression enabled\="true" text\="top"/>\r\n<expression enabled\="true" text\="bottom"/>\r\n<expression enabled\="true" text\="result"/>\r\n</watchExpressions>\r\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="a"/>\r\n<expression enabled\="true" text\="this"/>\r\n</watchExpressions>\r\n

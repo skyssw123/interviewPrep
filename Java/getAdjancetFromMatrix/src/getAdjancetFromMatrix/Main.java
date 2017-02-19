@@ -2,6 +2,10 @@ package getAdjancetFromMatrix;
 import java.io.*;
 import java.util.*;
 
+// HashSet add/contains function calls hashCode() first and if it is not empty,
+// add function checks if the new element equals the existing elements..
+
+// hashCode for coordinates in Matrix = 31 * row + column
 public class Main {
   static class Pair {
     public int row;
@@ -12,11 +16,21 @@ public class Main {
       this.column = b;
     }
     
-    public boolean equals(Pair a)
+    @Override
+    public boolean equals(Object a)
     {
-    	if(this.row == a.row && this.column == a.column)
+    	if(!(a instanceof Pair))
+    		return false;
+    	Pair pair = (Pair)a;
+    	if(this.row == pair.row && this.column == pair.column)
     		return true;
     	return false;
+    }
+    
+    @Override
+    public int hashCode(){
+    	int hashCode = 0;//31 * this.row + this.column;
+    	return hashCode;
     }
   }
   public static void main(String[] args) {
@@ -26,21 +40,22 @@ public class Main {
       System.out.println(string);
     }
     
-    int[][] a = new int[3][3];
-    a[0][1] = 1;
+    int[][] a = new int[5][5];
+    a[0][1] = 1; 
     a[0][2] = 1;
     a[1][0] = 1;
     a[1][1] = 1;
+    a[1][2] = 1;
     a[2][1] = 1;
     
     
-    ArrayList<Pair> result = new ArrayList<Pair>();
-    result = getAdjacent(a, new Pair(-1, -1) , new Pair(1,1), result);
+    HashSet<Pair> result = new HashSet<Pair>();
+    result = getAdjacent(a, new Pair(1,1), result);
     
     printPairs(result);
   }
   
-  public static void printPairs(ArrayList<Pair> result)
+  public static void printPairs(HashSet<Pair> result)
   {
     for(Pair pair: result)
     {
@@ -65,7 +80,7 @@ public class Main {
     }
   }
   
-  public static ArrayList<Pair> getAdjacent(int[][] matrix, Pair origin, Pair pair, ArrayList<Pair> result)
+  public static HashSet<Pair> getAdjacent(int[][] matrix, Pair pair, HashSet<Pair> result)
   {
     if(matrix.length == 0 || matrix[0].length == 0)
       return null;
@@ -82,40 +97,40 @@ public class Main {
     Pair topPair = new Pair(pair.row + 1, pair.column);
     Pair bottomPair = new Pair(pair.row -1, pair.column);
     
-    if(leftPair.column >= 0 && !leftPair.equals(origin))
-      left = matrix[pair.row][pair.column - 1];
+    if(leftPair.column >= 0 && !result.contains(leftPair))
+      left = matrix[leftPair.row][leftPair.column];
     
-    if(rightPair.column < matrix[0].length && !rightPair.equals(origin))
-      right = matrix[pair.row][pair.column + 1];
+    if(rightPair.column < matrix[0].length && !result.contains(rightPair))
+      right = matrix[rightPair.row][rightPair.column];
     
-    if(topPair.row < matrix.length && !topPair.equals(origin))
-      top = matrix[pair.row + 1][pair.column];
+    if(topPair.row < matrix.length && !result.contains(topPair))
+      top = matrix[topPair.row][topPair.column];
     
-    if(bottomPair.row >= 0 && !bottomPair.equals(origin))
-      bottom = matrix[pair.row - 1][pair.column];
+    if(bottomPair.row >= 0 && !result.contains(bottomPair))
+      bottom = matrix[bottomPair.row][bottomPair.column];
     
     if(left == value)
     {
       result.add(leftPair);
-      result = getAdjacent(matrix, pair,leftPair, result);
+      result = getAdjacent(matrix, leftPair, result);
     }
     
     if(right == value)
     {
       result.add(rightPair);
-      result = getAdjacent(matrix, pair, rightPair, result);
+      result = getAdjacent(matrix, rightPair, result);
     }
     
     if(top == value)
     {
       result.add(topPair);
-      result = getAdjacent(matrix, pair ,topPair, result);
+      result = getAdjacent(matrix, topPair, result);
     }
     
     if(bottom == value)
     {
       result.add(bottomPair);
-      result = getAdjacent(matrix, pair, bottomPair, result);
+      result = getAdjacent(matrix, bottomPair, result);
     }
     
     return result;
