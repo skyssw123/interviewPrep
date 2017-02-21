@@ -1,0 +1,10 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		System.out.println(counting("00110")); //Expected Outcome : 3 (0011, 01, 10)
+		System.out.println(counting("10101")); //Expected Outcome : 4 (10, 01, 10, 01)
+		System.out.println(counting("10001")); //Expected Outcome : 2 (10, 01)
+		System.out.println(counting("01110011100")); //Expected Outcome : 7
+	}
+}
