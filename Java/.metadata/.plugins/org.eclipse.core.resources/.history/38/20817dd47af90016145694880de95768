@@ -1,0 +1,82 @@
+import java.io.*;
+import java.util.*;
+
+/*
+ * To execute Java, please define "static void main" on a class
+ * named Solution.
+ *
+ * If you need more classes, simply define them inline.
+ */
+
+class Main {
+	private static LinkedList<Integer> list = new LinkedList<Integer>();
+	
+	public static void schedulePickup(int pickup, int dropoff)
+	{
+		if(pickup == dropoff)
+			return;
+		
+		if(list.isEmpty())
+		{
+			list.add(pickup);
+			list.add(dropoff);
+		}
+		
+		else
+		{
+			int i;
+			//put pickup into list
+			for(i = 0; i < list.size(); i++)
+			{
+				if(list.get(i) == pickup)
+					break; // we do not need to put pickup into list
+							//Already exists!
+				else if(list.get(i) > pickup)
+				{
+					list.add(i, pickup);
+					break;
+				}
+			}
+			
+			
+			for(; i < list.size(); i++)
+			{
+				if(list.get(i) == dropoff)
+					return; // we do not need to put pickup into list
+						//Already exists!
+				
+				//put dropoff into list (We have two cases)
+				if(pickup < dropoff)
+				{	
+					if(list.get(i) > dropoff)
+					{
+						list.add(i, dropoff);
+						return;
+					}
+				}
+				else // else if(pickup > dropoff)
+				{
+					if(list.get(i) < pickup && list.get(i) > dropoff)
+					{
+						list.add(i, dropoff);
+						return;
+					}
+				}
+			}
+		}
+	}
+  
+	public static void main(String[] args) 
+	{
+		//Test Case 
+		schedulePickup(1, 3); 
+		schedulePickup(1, 4);
+		schedulePickup(3, 2);
+    
+		// 1 -> 3 -> 4 -> 2 -> 2
+		while(!list.isEmpty())
+		{
+			System.out.println(list.removeFirst());
+		}
+	}
+}

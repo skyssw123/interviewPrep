@@ -71,4 +71,25 @@ public class Main {
 		}
 		return orderedProjects;
 	}
+	
+//	public static Stack<Project> orderProjects(Stack<Project> orderedProjects, Project project)
+//	{
+//		if(project == null)
+//			return null;
+//		if(project.visited == Project.State.VISITING)
+//			return null;
+//		else if(project.visited == Project.State.UNVISITED)
+//		{
+//			for(Project adjacent: project.getAdjacentProjects())
+//			{
+//				Stack<Project> result = orderProjects(orderedProjects, adjacent);
+//				if(result == null)
+//					return null;
+//				orderedProjects.push(adjacent);
+//				adjacent.visited = Project.State.VISITED;
+//			}
+//		}
+//		
+//		return orderedProjects;
+//	}
 }

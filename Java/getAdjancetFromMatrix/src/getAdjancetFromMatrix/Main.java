@@ -7,8 +7,8 @@ import java.util.*;
 // For add, it will add if the new element is not present in the HashSet..
 
 // hashCode for coordinates in Matrix = 31 * row + column
-public class Main extends Object{
-  static class Pair {
+public class Main{
+  static class Pair extends Object {
     public int row;
     public int column;
  

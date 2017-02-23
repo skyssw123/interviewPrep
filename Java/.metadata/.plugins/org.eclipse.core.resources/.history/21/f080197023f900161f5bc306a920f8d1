@@ -1,0 +1,16 @@
+import java.util.*;
+public class Main {
+	public static class ExampleClass
+	{
+		ArrayList<Integer> a;
+		int b;
+		public ExampleClass(Integer a)
+		{
+			this.b = a;
+		}
+	}
+
+	public static void main(String[] args) {
+		System.out.println("PRACTICE"); 
+	}
+}
