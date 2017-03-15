@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.util.Map.Entry;
 public class Main {
     public static enum State
     {
@@ -74,12 +75,13 @@ public class Main {
               //  dequeuedNode.state = State.VISITING;
                 for(node neighbor : dequeuedNode.adjacentList)
                 {
-                    int newLength = getLength(dequeuedNode.id) + 6;
                     int currentLength = getLength(neighbor.id);
-                    if(newLength < currentLength)
+                    if(currentLength == Integer.MAX_VALUE)
+                    {
+                    	int newLength = getLength(dequeuedNode.id) + 6;
                         setLength(neighbor.id, newLength);
+                    }
                    // if(neighbor.state == State.UNVISITED)
-                       q.add(neighbor);
                 }
                // dequeuedNode.state = State.VISITED;
             }
@@ -90,7 +92,7 @@ public class Main {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner scan = new Scanner(System.in);
         /*Input :
-         * 
+         * Test Case 1
 2
 4 2
 1 2
@@ -99,11 +101,10 @@ public class Main {
 3 1
 2 3
 2 
-
-copy this into console..
-Expected outcome:
-6 6 -1 
--1 6 
+         *
+ output:
+6 6 -1
+-1 6
          */
         int n = scan.nextInt();
         if(!(n >= 1 && n <= 10)) 
