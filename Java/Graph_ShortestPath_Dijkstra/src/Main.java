@@ -99,6 +99,7 @@ public class Main {
               //  dequeuedNode.state = State.VISITING;
                 for(node neighbor : dequeuedNode.adjacentList)
                 {
+                	//NOTE: Integer.MAX_VALUE + positive number returns negative number!!!
                 	int newLength = Integer.MAX_VALUE;
                 	if(getDistance(dequeuedNode.id) != Integer.MAX_VALUE)
                 		newLength = getDistance(dequeuedNode.id) + getLength(dequeuedNode.id, neighbor.id);
