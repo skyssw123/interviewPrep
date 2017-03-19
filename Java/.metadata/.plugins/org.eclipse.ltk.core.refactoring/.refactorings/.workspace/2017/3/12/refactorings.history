@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Graph_ShortestPath_Dijstra_withWeights&apos;" deleteContents="false" description="Delete resource &apos;Graph_ShortestPath_Dijstra_withWeights&apos;" element1="/Graph_ShortestPath_Dijstra_withWeights" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1489900783001"/>
+</session>
