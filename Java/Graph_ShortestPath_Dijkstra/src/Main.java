@@ -2,31 +2,25 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 public class Main {
-    public static enum State
-    {
-        VISITING, VISITED, UNVISITED
-    }
-    public static class node
+    public static class node implements Comparable<node>
     {
         public ArrayList<node> adjacentList;
+        public int shortestDistance;
         public int id;
-        public State state = State.UNVISITED;
         node(int idnum)
         {
             this.id = idnum;
+            this.shortestDistance = Integer.MAX_VALUE;
             this.adjacentList = new ArrayList<node>();
         }
         public void addNeighbor(node neighbor)
         {
             this.adjacentList.add(neighbor);
         }
-        public int hashcode()
+        @Override
+        public int compareTo(node other)
         {
-            return this.id;
-        }
-        public boolean equalTo(node neighbor)
-        {
-            return this == neighbor;
+        	return Integer.compare(this.shortestDistance, other.shortestDistance);
         }
     }
     
@@ -78,9 +72,10 @@ public class Main {
         }
         public void Dijkstra_shortestPath(int s)
         {
-            LinkedList<node> q = new LinkedList<node> ();
+            PriorityQueue<node> q = new PriorityQueue<node> ();
             node node_s = this.hashTable.get(s);
             setDistance(node_s.id, 0);
+            node_s.shortestDistance = 0;
             setLength(node_s.id, node_s.id, 0);
             for(Entry<Integer, node> set: this.hashTable.entrySet())
             {
@@ -88,7 +83,7 @@ public class Main {
             }
             while(!q.isEmpty())
             {
-                node dequeuedNode = deletemin(q);
+                node dequeuedNode = q.remove(); // same as deletemin()
               //  dequeuedNode.state = State.VISITING;
                 for(node neighbor : dequeuedNode.adjacentList)
                 {
@@ -100,31 +95,31 @@ public class Main {
                     if(newLength < currentLength)
                     {
                         setDistance(neighbor.id, newLength);
-                        
+                        neighbor.shortestDistance = newLength;
                     }
                    // if(neighbor.state == State.UNVISITED)
                 }
                // dequeuedNode.state = State.VISITED;
             }
         }
-        
-        private node deletemin(LinkedList<node> q)
-        {
-        	int value = Integer.MAX_VALUE;
-        	int index = 0;
-        	int i = 0;
-        	for(node a : q)
-        	{
-        		if(getDistance(a.id) < value)
-        		{
-        			value = getDistance(a.id);
-        			index = i;
-        		}
-        		i++;
-        	}
-        	node result = q.remove(index);
-        	return result;
-        }
+//        
+//        private node deletemin(LinkedList<node> q)
+//        {
+//        	int value = Integer.MAX_VALUE;
+//        	int index = 0;
+//        	int i = 0;
+//        	for(node a : q)
+//        	{
+//        		if(getDistance(a.id) < value)
+//        		{
+//        			value = getDistance(a.id);
+//        			index = i;
+//        		}
+//        		i++;
+//        	}
+//        	node result = q.remove(index);
+//        	return result;
+//        }
     }
 
     public static void main(String[] args) {
