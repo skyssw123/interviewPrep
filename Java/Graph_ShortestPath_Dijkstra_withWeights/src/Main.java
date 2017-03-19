@@ -1,4 +1,5 @@
 import java.io.*;
+import java.io.BufferedReader;
 import java.util.*;
 import java.text.*;
 import java.math.*;
@@ -95,30 +96,29 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
-    	//Test case 1: type input to the console.
-    	//Input:
-    /*
-    	1
-    	4 4
-    	1 2 24
-    	1 4 20
-    	3 1 3
-    	4 3 12
-    	1
-    	*/
-    	
-    	//Output: 24 3 15
-        Scanner in = new Scanner(System.in);
-        int t = in.nextInt();
-        for(int a0 = 0; a0 < t; a0++){
-            int n = in.nextInt();
-            int m = in.nextInt();
-            Graph g = new Graph(n);
-            for(int a1 = 0; a1 < m; a1++){
-                int x = in.nextInt();
-                int y = in.nextInt();
-                int r = in.nextInt();
+    public static void main(String[] args) throws IOException {
+    	Scanner sc = new Scanner(System.in);
+		int test;// = sc.nextInt();
+		int n, m;
+		
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		test = Integer.parseInt(br.readLine());
+		String split[];
+		for(int i=0; i<test; i++)
+		{
+			split = br.readLine().split(" ");
+			n = Integer.parseInt(split[0]);
+			m = Integer.parseInt(split[1]);
+			
+			Graph g = new Graph(n);
+			
+			for(int j=0; j<m; j++)
+			{
+				split = br.readLine().split(" ");
+                int x = Integer.parseInt(split[0]);
+                int y = Integer.parseInt(split[1]);
+                int r = Integer.parseInt(split[2]);
                 if(g.lengthtable[x-1][y-1] == 0)
                 {
                 	g.addEdge(x-1, y-1, r);
@@ -130,9 +130,10 @@ public class Main {
                 	g.lengthtable[x-1][y-1] = r;
                 	g.lengthtable[y-1][x-1] = r;
                 }
-            }
-            int s = in.nextInt();
-            g.shortestPath_dijkstra_withWeights(s-1);
-        }
+			}
+			
+			g.shortestPath_dijkstra_withWeights(Integer.parseInt(br.readLine()) - 1);
+		}
     }
 }
+
