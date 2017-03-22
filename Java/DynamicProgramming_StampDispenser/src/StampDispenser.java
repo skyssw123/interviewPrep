@@ -74,16 +74,32 @@ public class StampDispenser
         StampDispenser stampDispenser = new StampDispenser(denominations);
         assert stampDispenser.calcMinNumStampsToFillRequest(18) == 3;
         
-        System.out.println(stampDispenser.calcMinNumStampsToFillRequest(18));
-        System.out.println(stampDispenser.calcMinNumStampsToFillRequest(10));
-        System.out.println(stampDispenser.calcMinNumStampsToFillRequest(18));
+        System.out.println(stampDispenser.calcMinNumStampsToFillRequest(18));  // output : 3
+        System.out.println(stampDispenser.calcMinNumStampsToFillRequest(10));  // output : 1
+        System.out.println(stampDispenser.calcMinNumStampsToFillRequest(18));  // output : 3
         
-        int[] denominations_2 = { 13, 29, 2, 7};
+        int[] denominations_2 = { 13, 29, 2, 7};  // output : 14
         StampDispenser stampDispenser_2 = new StampDispenser(denominations_2);
         System.out.println(stampDispenser_2.calcMinNumStampsToFillRequest(335));
         
-        int[] denominations_3 = { 24, 10, 5, 1};
+        int[] denominations_3 = { 24, 10, 5, 1};  // output : 34
         StampDispenser stampDispenser_3 = new StampDispenser(denominations_3);
         System.out.println(stampDispenser_3.calcMinNumStampsToFillRequest(737));
+        
+        int[] denominations_4 = { };              // output : -1
+        StampDispenser stampDispenser_4 = new StampDispenser(denominations_4);
+        System.out.println(stampDispenser_4.calcMinNumStampsToFillRequest(737));
+        
+        int[] denominations_5 = { 3 };              // output : -1
+        StampDispenser stampDispenser_5 = new StampDispenser(denominations_5);
+        System.out.println(stampDispenser_5.calcMinNumStampsToFillRequest(3));
+        
+        int[] denominations_6 = { 2 };              // output : -1
+        StampDispenser stampDispenser_6 = new StampDispenser(denominations_6);
+        System.out.println(stampDispenser_6.calcMinNumStampsToFillRequest(7));
+        
+        int[] denominations_7 = { 3, 5, 9, 11 };              // output : -1
+        StampDispenser stampDispenser_7 = new StampDispenser(denominations_7);
+        System.out.println(stampDispenser_7.calcMinNumStampsToFillRequest(7));
     }
 }
