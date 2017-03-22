@@ -38,7 +38,7 @@ public class StampDispenser
      */
     public int calcMinNumStampsToFillRequest(int request)
     {  
-    	if(this.typeStamps == null || (this.typeStamps.length == 1 && this.typeStamps[0] != 1))
+    	if(this.typeStamps == null || this.typeStamps.length == 0 || (this.typeStamps.length == 1 && this.typeStamps[0] != 1))
     		return -1; // -1 indicates that there is an error
     	
     	calMinNumStamps(request);
