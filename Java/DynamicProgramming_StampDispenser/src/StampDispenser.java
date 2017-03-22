@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.*;
+
 /**
  * Facilitates dispensing stamps for a postage stamp machine.
  */
@@ -11,13 +14,19 @@ public class StampDispenser
      *     machine should have.  Should be sorted in descending order and 
      *     contain at least a 1.
      */
-	int[] typeStamps;
+	Integer[] typeStamps;
 	int[] numStamps;
     public StampDispenser(int[] stampDenominations)
     {
     	if(stampDenominations == null || stampDenominations.length == 0)
     		return;
-    	this.typeStamps = stampDenominations; //As we are not array copying, the denominations array should not be changed after initialization
+    	this.typeStamps = new Integer[stampDenominations.length];
+    	for(int i = 0; i < stampDenominations.length; i++)
+    	{
+    		this.typeStamps[i] = (Integer)stampDenominations[i];
+    	}
+    	
+    	Arrays.sort(this.typeStamps, Collections.reverseOrder());
     	this.numStamps = new int[stampDenominations.length];
     }
  
@@ -29,7 +38,7 @@ public class StampDispenser
      */
     public int calcMinNumStampsToFillRequest(int request)
     {  
-    	if(this.typeStamps == null || this.numStamps == null)
+    	if(this.typeStamps == null || (this.typeStamps.length == 1 && this.typeStamps[0] != 1))
     		return -1; // -1 indicates that there is an error
     	
     	calMinNumStamps(request);
@@ -67,7 +76,7 @@ public class StampDispenser
         
         System.out.println(stampDispenser.calcMinNumStampsToFillRequest(18));
         
-        int[] denominations_2 = { 29, 13, 7, 2};
+        int[] denominations_2 = { 13, 29, 2, 7};
         StampDispenser stampDispenser_2 = new StampDispenser(denominations_2);
         System.out.println(stampDispenser_2.calcMinNumStampsToFillRequest(335));
         
