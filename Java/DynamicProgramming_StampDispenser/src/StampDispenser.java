@@ -98,7 +98,7 @@ public class StampDispenser
         StampDispenser stampDispenser_6 = new StampDispenser(denominations_6);
         System.out.println(stampDispenser_6.calcMinNumStampsToFillRequest(7));
         
-        int[] denominations_7 = { 3, 5, 9, 11 };              // output : -1
+        int[] denominations_7 = { 3, 5, 9, 11 };              // output : 0
         StampDispenser stampDispenser_7 = new StampDispenser(denominations_7);
         System.out.println(stampDispenser_7.calcMinNumStampsToFillRequest(7));
     }
