@@ -15,7 +15,7 @@ public class StampDispenser
      *     contain at least a 1.
      */
 	Integer[] typeStamps;
-	int[] numStamps;
+	
     public StampDispenser(int[] stampDenominations)
     {
     	if(stampDenominations == null || stampDenominations.length == 0 || (stampDenominations.length == 1 && stampDenominations[0] != 1))
@@ -27,7 +27,6 @@ public class StampDispenser
     	}
     	
     	Arrays.sort(this.typeStamps, Collections.reverseOrder());
-    	this.numStamps = new int[stampDenominations.length];
     }
  
     /**
@@ -38,10 +37,11 @@ public class StampDispenser
      */
     public int calcMinNumStampsToFillRequest(int request)
     {  
-    	if(this.typeStamps == null || this.numStamps == null)
+    	if(this.typeStamps == null)
     		return -1; // -1 indicates that there is an error
     	
-    	calMinNumStamps(request);
+    	int[] numStamps = new int[this.typeStamps.length];
+    	calMinNumStamps(request, numStamps);
     	int sum = 0;
     	for(int num : numStamps)
     	{
@@ -50,7 +50,7 @@ public class StampDispenser
     	return sum;
     }
     
-    public boolean calMinNumStamps(int request)
+    private boolean calMinNumStamps(int request, int[] numStamps)
     {
     	if(request == 0)
     		return true;
@@ -59,7 +59,7 @@ public class StampDispenser
     	
     	for(int i = 0; i < typeStamps.length; i++)
     	{
-    		if(calMinNumStamps(request - typeStamps[i]))
+    		if(calMinNumStamps(request - typeStamps[i], numStamps))
     		{
     			numStamps[i] ++;
     			return true;
@@ -74,6 +74,8 @@ public class StampDispenser
         StampDispenser stampDispenser = new StampDispenser(denominations);
         assert stampDispenser.calcMinNumStampsToFillRequest(18) == 3;
         
+        System.out.println(stampDispenser.calcMinNumStampsToFillRequest(18));
+        System.out.println(stampDispenser.calcMinNumStampsToFillRequest(10));
         System.out.println(stampDispenser.calcMinNumStampsToFillRequest(18));
         
         int[] denominations_2 = { 13, 29, 2, 7};
