@@ -18,7 +18,7 @@ public class StampDispenser
 	int[] numStamps;
     public StampDispenser(int[] stampDenominations)
     {
-    	if(stampDenominations == null || stampDenominations.length == 0)
+    	if(stampDenominations == null || stampDenominations.length == 0 || (stampDenominations.length == 1 && stampDenominations[0] != 1))
     		return;
     	this.typeStamps = new Integer[stampDenominations.length];
     	for(int i = 0; i < stampDenominations.length; i++)
@@ -38,7 +38,7 @@ public class StampDispenser
      */
     public int calcMinNumStampsToFillRequest(int request)
     {  
-    	if(this.typeStamps == null || this.typeStamps.length == 0 || (this.typeStamps.length == 1 && this.typeStamps[0] != 1))
+    	if(this.typeStamps == null || this.numStamps == null)
     		return -1; // -1 indicates that there is an error
     	
     	calMinNumStamps(request);
