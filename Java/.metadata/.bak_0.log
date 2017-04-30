@@ -11690,7 +11690,7 @@ Contains: The project description file (.project) for 'Graph_ShortestPath_Dijstr
 !SUBENTRY 2 org.eclipse.core.resources 4 567 2017-03-19 01:18:24.600
 !MESSAGE The project description file (.project) for 'Graph_ShortestPath_Dijstra_withWeights' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
 
-!ENTRY org.eclipse.recommenders.coordinates.rcp 4 10 2017-03-26 23:29:25.346
+!ENTRY org.eclipse.recommenders.coordinates.rcp 4 10 2017-04-30 03:32:32.352
 !MESSAGE Suggesting project coordinate for ‘DependencyInfo{/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home, JRE, {EXECUTION_ENVIRONMENT=JavaSE-1.8}}’ failed.
 !STACK 0
 java.lang.IllegalStateException: Expected the service to be RUNNING, but the service has FAILED

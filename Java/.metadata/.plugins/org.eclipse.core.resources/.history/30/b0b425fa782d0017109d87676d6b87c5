@@ -1,0 +1,62 @@
+
+public class Main {
+	
+	public static class Pet
+	{
+		public static class Builder
+		{
+			private String petname;
+			private String ownername;
+			private Integer animalAge;
+			private Integer ownerAge = 4; //default value
+			
+			public Builder withPetname(String petName)
+			{
+				this.petname = petName;
+				return this;
+			}
+			
+			public Builder withOwnername(String ownerName)
+			{
+				this.ownername = ownerName;
+				return this;
+			}
+			
+			public Builder withAnimalAge(int age)
+			{
+				this.animalAge = age;
+				return this;
+			}
+			
+			public Pet build()
+			{
+				if(this.petname == null || this.ownername == null || this.animalAge == null)
+				{
+					throw new IllegalStateException("Cannot Create Pet");
+				}
+				
+				return new Pet(this.petname, this.ownername, this.animalAge, this.ownerAge);
+			}
+		}
+		
+		private final String petname;
+		private final String ownername;
+		private final Integer animalAge;
+		private final Integer ownerAge;
+		private Pet(String petname, String ownername, Integer animalAge, Integer ownerAge)
+		{
+			this.petname = petname;
+			this.ownername = ownername;
+			this.animalAge = animalAge;
+			this.ownerAge = ownerAge;
+		}
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Pet.Builder builder = new Pet.Builder();
+		Pet a = builder.withPetname("shony").withAnimalAge(4).build();
+		System.out.println(a.petname);
+	}
+
+}
