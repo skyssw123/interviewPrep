@@ -1,0 +1,29 @@
+import java.util.*;
+public class Main {
+	public static class ExampleClass
+	{
+		int[] a = new int[10];
+		ArrayList<Integer> p = new ArrayList<Integer> ();
+		int b;
+		public ExampleClass(Integer a)
+		{
+			this.b = a;
+		}
+	}
+
+	public static void main(String[] args) {
+		String a = "fun";
+		System.out.println(a.substring(0, 0));
+	}
+	
+	public static void helloWorld(ArrayList<Integer> a)
+	{
+		a.add(1);
+		a.add(2);
+	}
+	
+	public static void helloWorld(int[] a)
+	{
+		a[0] = 1;
+	}
+}

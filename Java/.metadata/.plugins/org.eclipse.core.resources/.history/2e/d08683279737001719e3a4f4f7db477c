@@ -1,0 +1,49 @@
+import java.util.*;
+public class Main {
+	public static class ExampleClass
+	{
+		int[] a = new int[10];
+		ArrayList<Integer> p = new ArrayList<Integer> ();
+		int b;
+		public ExampleClass(Integer a)
+		{
+			this.b = a;
+		}
+	}
+
+	public static void main(String[] args) {
+		String str = "rum";
+		List<String> list = subsets(str);
+		for(String a : list)
+		{
+			System.out.println(a);
+		}
+     }
+	
+	private static ArrayList<String> subsets(String word){
+        ArrayList<String> s = new ArrayList<String>();
+        int length = word.length();
+        for (int c=0; c<length; c++){
+            for (int i=0; i<length-c; i++){
+                String sub = word.substring(c, c+i+1);
+                System.out.println(sub);
+                //if (!s.contains(sub) && sub!=null) 
+                    s.add(sub);
+            }
+        }
+        //java.util.Collections.sort(s, new MyComparator());
+        //System.out.println(s.toString());
+        return s;
+    }
+	
+	public static void helloWorld(ArrayList<Integer> a)
+	{
+		a.add(1);
+		a.add(2);
+	}
+	
+	public static void helloWorld(int[] a)
+	{
+		a[0] = 1;
+	}
+}

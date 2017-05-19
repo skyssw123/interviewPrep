@@ -1,0 +1,34 @@
+import java.util.*;
+public class Main {
+	public static class ExampleClass
+	{
+		int[] a = new int[10];
+		ArrayList<Integer> p = new ArrayList<Integer> ();
+		int b;
+		public ExampleClass(Integer a)
+		{
+			this.b = a;
+		}
+	}
+
+	public static void main(String[] args) {
+		String str = "rum";
+		for(int i=0;i<str.length();i++){
+			for(int j=i;j<str.length();j++)
+			System.out.println(">>>"+str.substring(i, j+1));
+		}
+      }
+	
+	
+	
+	public static void helloWorld(ArrayList<Integer> a)
+	{
+		a.add(1);
+		a.add(2);
+	}
+	
+	public static void helloWorld(int[] a)
+	{
+		a[0] = 1;
+	}
+}
