@@ -1,0 +1,14 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		final SuperClass.Builder builder = new SuperClass.Builder();
+		final SuperClass.Builder builder2 = new SuperClass.Builder();
+		System.out.println(builder == builder2);
+		
+		final SuperClass superClass = builder.withName("Tom").withAge(28).build();
+		System.out.println(superClass.name);
+		System.out.println(superClass.age);
+	}
+}

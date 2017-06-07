@@ -1,0 +1,8 @@
+
+public class SubClass extends SuperClass {
+	private String name;
+	public SubClass(String name)
+	{
+		this.name = name;
+	}
+}

@@ -1,0 +1,10 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SuperClass a = SuperClass.Builder.build(29, "Tom Sin");
+		System.out.println(a.age);
+	}
+
+}

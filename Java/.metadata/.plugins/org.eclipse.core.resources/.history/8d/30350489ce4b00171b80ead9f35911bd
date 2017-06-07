@@ -1,0 +1,32 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		final SuperClass.Builder builder = new SuperClass.Builder();
+		final SuperClass.Builder builder2 = new SuperClass.Builder();
+		System.out.println(builder == builder2);
+		
+		final SuperClass superClass = builder.withName("Tom").withAge(28).build();//Static class can also be instantiated!!!
+		System.out.println(superClass.name);
+		System.out.println(superClass.age);
+	}
+	
+	//Why private constructor???
+	/*
+	 *
+	 * 1. to prevent instantiation outside of the object, in the following cases:
+singleton
+factory method
+static-methods-only (utility) class
+constants-only class
+
+2.to prevent sublcassing (extending).
+ If you make only a private constructor, no class can extend your class, because it can't call the super() constructor. 
+ This is some kind of a synonym for final
+ 
+3. overloaded constructors - as a result of overloading methods and constructors, 
+ some may be private and some public. Especially in case when there is a non-public class that you use in your constructors, 
+ you may create a public constructor that creates an instance of that class and then passes it to a private constructor.
+	 */
+}

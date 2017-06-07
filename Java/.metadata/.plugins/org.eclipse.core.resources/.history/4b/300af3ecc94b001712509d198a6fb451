@@ -1,0 +1,18 @@
+
+public class SuperClass {
+	int age;
+	String name;
+	private SuperClass(int age, String name)
+	{
+		this.age = age;
+		this.name = name;
+	}
+	public static class Builder
+	{
+		public static SuperClass build(int age, String name)
+		{
+			SuperClass a = new SuperClass(age, name);
+			return a;
+		}
+	}
+}
