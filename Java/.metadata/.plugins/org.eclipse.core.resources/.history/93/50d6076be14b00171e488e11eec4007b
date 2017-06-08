@@ -10,6 +10,7 @@ public class Main {
 		{
 			System.out.println(itr.next());
 		}
+
 	}
 	
 	public static List<String> powerSet(String a)
