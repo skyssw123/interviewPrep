@@ -31,6 +31,14 @@ public class Main {
 		{
 			System.out.println(iterator2.next());
 		}
+		
+		System.out.println();
+		
+		int k = 15; // 1111
+		System.out.println(k & (1<<0)); // 1
+		System.out.println(k & (1<<1)); // 2
+		System.out.println(k & (1<<2)); // 4
+		System.out.println(k & (1<<3)); // 8
 	}
 	
 	public static void helloWorld(ArrayList<Integer> a)
