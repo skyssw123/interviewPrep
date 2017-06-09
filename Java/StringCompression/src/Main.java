@@ -25,6 +25,14 @@ public class Main {
 		String b = "abcd"; 
 		System.out.println(compress(a)); //a4e3f5c1w2e3
 		System.out.println(compress(b)); //abcd 
+		System.out.println();
+		
+		
+		StringBuilder builder = new StringBuilder();
+		builder.append("34");
+		builder.append(" hihi");
+		System.out.println(builder.length());
+		System.out.println(builder.charAt(builder.length() - 1));
 	}
 
 }
