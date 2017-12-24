@@ -9,7 +9,8 @@
 #include <iostream>
 #include <vector>
 
-// FOR std::vector & std::array, only pass by value is possible
+// FOR std::vector & std::array (from libraries),
+// pass by value is possible but pass by reference is not possible
 
 void change2DvectorByReference(std::vector<std::vector<int>> twoDvector)
 {
