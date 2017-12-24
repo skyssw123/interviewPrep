@@ -9,6 +9,8 @@
 #include <iostream>
 #include <vector>
 
+// FOR std::vector & std::array, only pass by value is possible
+
 void change2DvectorByReference(std::vector<std::vector<int>> twoDvector)
 {
     twoDvector[2][1] = 8;
