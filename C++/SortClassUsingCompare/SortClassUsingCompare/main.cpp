@@ -43,22 +43,35 @@ int main(int argc, const char * argv[]) {
     std::cout<< rectangle2.displayArea() << std::endl; //2
     std::cout<< rectangle3.displayArea() << std::endl; //50
     
-    std::vector<Rectangle> vector; // = {rectangle1, rectangle2, rectangle3}
+    std::vector<Rectangle> vector, vector2; // = {rectangle1, rectangle2, rectangle3}
     vector.push_back(rectangle1);
     vector.push_back(rectangle2);
     vector.push_back(rectangle3);
+    vector2.push_back(rectangle1);
+    vector2.push_back(rectangle2);
+    vector2.push_back(rectangle3);
     
     
     std::cout<< std::endl;
     
+    //using compare function
     std::sort(vector.begin(),vector.end(), compare);
+    
+    //using lambda expression
+    std::sort(vector2.begin(), vector2.end(), [](Rectangle& l, Rectangle& r) {return l.area < r.area;});
     
     for(std::vector<Rectangle>::iterator it=vector.begin(); it!=vector.end(); ++it)
     {
-        std::cout << (*it).displayArea() << std::endl;
+        std::cout << (*it).area << std::endl;
     }
     
     std::cout<< std::endl;
+    
+    for(std::vector<Rectangle>::iterator it = vector2.begin(); it != vector2.end(); ++it)
+    {
+        std::cout << (*it).area << std::endl;
+    }
+    
     
     return 0;
 }
