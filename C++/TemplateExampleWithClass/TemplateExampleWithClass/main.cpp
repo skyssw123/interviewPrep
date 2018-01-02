@@ -18,6 +18,11 @@ public:
         b = second;
     }
     T GetMax();
+    T GetMin()
+    {
+        T result = a > b ? b : a;
+        return result;
+    }
 };
 
 template<class F>
@@ -31,6 +36,7 @@ int main(int argc, const char * argv[]) {
     
     MyPair<int> a (5, 69);
     std::cout << a.GetMax() << std::endl;
+    std::cout << a.GetMin() << std::endl;
     
     return 0;
 }
