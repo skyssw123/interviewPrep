@@ -11,6 +11,7 @@
 class Rectangle{
 public:
     int width; int height;
+    void setWidth(int n);
     int getWidth();
     int getHeight();
     Rectangle()
@@ -23,6 +24,11 @@ public:
     }
 };
 
+void Rectangle::setWidth(int x)
+{
+    width = x;
+}
+
 int Rectangle::getWidth()
 {
     return width;
@@ -34,7 +40,8 @@ int Rectangle::getHeight()
 }
 
 int main(int argc, const char * argv[]) {
-    Rectangle rect = Rectangle(49, 38);
+    Rectangle rect (49, 38);
+    rect.setWidth(399);
     std::cout<<rect.getWidth() << " " << rect.getHeight() << std::endl;
     return 0;
 }
