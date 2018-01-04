@@ -12,7 +12,7 @@
 int main(int argc, const char * argv[]) {
     std::string str = "Mr Johnson is Nice";
     
-    char charArray[str.size()];
+    char charArray[str.size()+1]; // last character is to be NULL;
     strcpy(charArray, str.c_str());
     
     for(char* it = charArray ; *it ; ++it)
